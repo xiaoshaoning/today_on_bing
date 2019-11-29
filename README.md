@@ -4,7 +4,7 @@ Today on Bing
 Retrieve the today on Bing paragraph from bing.com on linux.
 
 ## Prerequest
-python3, selenium, chromium, chromedriver, curl library
+python3, selenium, chromium, chromedriver and curl library
 
 ## Build
 make today_on_bing
@@ -19,4 +19,4 @@ url2file.c is from Daniel, Stenberg, <daniel@haxx.se>, et al.
 Other source codes are from Xiao, Shaoning, <xiaoshaoning@foxmail.com>.
 
 ## License
-Source codes other than url2file.c follows MIT license.
+Source codes other than url2file.c follow MIT license.
