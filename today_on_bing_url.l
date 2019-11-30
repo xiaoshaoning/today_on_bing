@@ -10,14 +10,14 @@ char * url;
 
 %%
 \n
-copyrightlink\"\:\"\/search\?q\=[a-zA-Z0-9\+\\\%\=\_\& ]+\"\,   {
-                                                                url_length = strlen(yytext);
-                                                                url = (char *) malloc(sizeof(char) * url_length);
-                                                                memset(url, '\0', url_length);
-                                                                strncpy(url, yytext+17, url_length-19);
-                                                                printf("%s\n", url);
-                                                                free(url);
-                                                            }
+copyrightlink\"\:\"\/search\?q\=[a-zA-Z0-9\+\\\%\=\_\&\- ]+\"\,   {
+                                                                      url_length = strlen(yytext);
+                                                                      url = (char *) malloc(sizeof(char) * url_length);
+                                                                      memset(url, '\0', url_length);
+                                                                      strncpy(url, yytext+17, url_length-19);
+                                                                      printf("%s\n", url);
+                                                                      free(url);
+                                                                  }
 .
 %%
 
