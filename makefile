@@ -11,4 +11,5 @@ test:
 	./today_on_bing_url page.out > link.txt
 	python3 today_on_bing.py > bing.html
 	./today_on_bing bing.html
-
+	file_name=`./today_on_bing bing.html | head -n 1 | sed 's/ /\_/g'`'.txt'
+	./save_file.sh
