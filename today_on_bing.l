@@ -13,13 +13,13 @@ char * content;
 
 %%
 \n
-ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\ ]+.                                           {   title_length = strlen(yytext+11);
-                                                                                          title = (char *) malloc(sizeof(char) * strlen(yytext));
-                                                                                          memset(title, '\0', title_length);
-                                                                                          strncpy(title, yytext+11, title_length - 1);
-                                                                                          printf("%s\n", title);
-                                                                                          free(title);
-                                                                                      }
+ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\— ]+[\<br\>]+[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\— ]+.  {   title_length = strlen(yytext+11);
+                                                                                                       title = (char *) malloc(sizeof(char) * strlen(yytext));
+                                                                                                       memset(title, '\0', title_length);
+                                                                                                       strncpy(title, yytext+11, title_length - 1);
+                                                                                                       printf("%s\n", title);
+                                                                                                       free(title);
+                                                                                                   }
 ency\_desc\<\/span\>\"\&gt\;\<\/span\>[ \t0-9A-Za-z\'\(\)\,\.\?\;]+\<span               {
                                                                                           content_length = strlen(yytext+11);
                                                                                           content = (char *) malloc(sizeof(char) * strlen(yytext));
