@@ -12,6 +12,6 @@ br2return : br2return.l
 test:
 	./url2file "https://cn.bing.com/?ensearch=1" 2>/dev/null
 	./today_on_bing_url page.out > link.txt
-	python3 today_on_bing.py | ./br2return > bing.html
-	./today_on_bing bing.html
+	python3 today_on_bing.py  > bing.html
+	./today_on_bing bing.html | ./br2return
 	./save_file.sh
