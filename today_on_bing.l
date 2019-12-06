@@ -13,11 +13,11 @@ char * content;
 
 %%
 \n
-ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\—\’ ]+[\<br\>]+[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\—\’ ]+.  {
+ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\—\’ \<\>]+\.\<\/                                         {
                                                                                                            title_length = strlen(yytext+11);
                                                                                                            title = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                                            memset(title, '\0', title_length);
-                                                                                                           strncpy(title, yytext+11, title_length - 1);
+                                                                                                           strncpy(title, yytext+11, title_length - 2);
                                                                                                            printf("%s\n", title);
                                                                                                            free(title);
                                                                                                        }
