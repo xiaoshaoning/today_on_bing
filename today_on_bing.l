@@ -13,15 +13,24 @@ char * content;
 
 %%
 \n
-ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\—\’ \<\>]+\.\<\/                                         {
-                                                                                                           title_length = strlen(yytext+11);
-                                                                                                           title = (char *) malloc(sizeof(char) * strlen(yytext));
-                                                                                                           memset(title, '\0', title_length);
-                                                                                                           strncpy(title, yytext+11, title_length - 2);
-                                                                                                           printf("%s\n", title);
-                                                                                                           free(title);
-                                                                                                       }
-ency\_desc\<\/span\>\"\&gt\;\<\/span\>[ \t0-9A-Za-z\'\(\)\,\.\?\;]+\<span               {
+ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ]+\<br\>\<br\>[0-9a-zA-Z\?\:\(\)\.\'\`\-\n\;\—\ ]+\<\/ {
+                                                                                                            title_length = strlen(yytext+11);
+                                                                                                            title = (char *) malloc(sizeof(char) * strlen(yytext));
+                                                                                                            memset(title, '\0', title_length);
+                                                                                                            strncpy(title, yytext+11, title_length - 2);
+                                                                                                            printf("%s\n", title);
+                                                                                                            free(title);
+                                                                                                        }
+ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ]+\<\/                                                 {
+                                                                                                            title_length = strlen(yytext+11);
+                                                                                                            title = (char *) malloc(sizeof(char) * strlen(yytext));
+                                                                                                            memset(title, '\0', title_length);
+                                                                                                            strncpy(title, yytext+11, title_length - 2);
+                                                                                                            printf("%s\n", title);
+                                                                                                            free(title);
+                                                                                                        }
+
+ency\_desc\<\/span\>\"\&gt\;\<\/span\>[ \t0-9A-Za-z\'\(\)\,\.\?\;]+\<span             {
                                                                                           content_length = strlen(yytext+11);
                                                                                           content = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                           memset(content, '\0', content_length);
