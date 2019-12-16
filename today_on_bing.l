@@ -13,7 +13,7 @@ char * content;
 
 %%
 \n
-ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ]+\<br\>\<br\>[0-9a-zA-Z\?\:\(\)\.\'\`\-\n\;\—\ ]+\<\/ {
+ency\_desc\"\>[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ \—]+\<br\>\<br\>[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ \—]+\<\/ {
                                                                                                             title_length = strlen(yytext+11);
                                                                                                             title = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                                             memset(title, '\0', title_length);
