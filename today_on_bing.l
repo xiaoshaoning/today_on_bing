@@ -21,7 +21,7 @@ ency\_desc\"\>[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ \—]+\<br\>\<br\>[0-9A-Za
                                                                                                             printf("%s\n", title);
                                                                                                             free(title);
                                                                                                         }
-ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ]+\<\/                                                 {
+ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ä\—]+\<\/                                                 {
                                                                                                             title_length = strlen(yytext+11);
                                                                                                             title = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                                             memset(title, '\0', title_length);
@@ -38,7 +38,7 @@ ency\_desc\<\/span\>\"\&gt\;\<\/span\>[ \t0-9A-Za-z\'\(\)\,\.\?\;]+\<span       
                                                                                           printf("%s\n", content);
                                                                                           free(content);
                                                                                       }
-ency\_imgTitle\".[ \t0-9A-Za-z\?\.\'\,]+.                                             {   title_length = strlen(yytext+15);
+ency\_imgTitle\".[\t0-9A-Za-z\?\.\'\,\ \!\’]+.                                             {   title_length = strlen(yytext+15);
                                                                                           title = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                           memset(title, '\0', title_length);
                                                                                           strncpy(title, yytext+15, title_length - 1);
