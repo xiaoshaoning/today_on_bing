@@ -13,15 +13,15 @@ char * content;
 
 %%
 \n
-ency\_desc\"\>[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ \—]+\<br\>\<br\>[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ \—]+\<\/ {
+ency\_desc\"\>[0-9A-Za-z\?\!\.\'\(\)\,\-\`\;\–\n\’\ \—\:\$]+\<br\>\<br\>[0-9A-Za-z\?\!\.\'\(\)\,\-\`\;\–\n\’\ \—\:\$]+\<\/ {
                                                                                                             title_length = strlen(yytext+11);
                                                                                                             title = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                                             memset(title, '\0', title_length);
                                                                                                             strncpy(title, yytext+11, title_length - 2);
                                                                                                             printf("%s\n", title);
                                                                                                             free(title);
-                                                                                                        }
-ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ä\—]+\<\/                                                 {
+                                                                                                         }
+ency\_desc\".[0-9A-Za-z\?\.\'\(\)\,\-\`\;\–\n\’\ ä\—\:\$]+\<\/                                             {
                                                                                                             title_length = strlen(yytext+11);
                                                                                                             title = (char *) malloc(sizeof(char) * strlen(yytext));
                                                                                                             memset(title, '\0', title_length);
@@ -52,6 +52,15 @@ ency\_imgTitle\<\/span\>\"\&gt\;\<\/span\>[ \t0-9A-Za-z\?\.\']+\<span           
                                                                                           printf("%s\n", title);
                                                                                           free(title);
                                                                                       }
+ency\_desc\"\>[0-9A-Za-z\?\!\.\'\(\)\,\-\`\;\–\n\’\ \—\:\$]+\<br\>\<br\>[0-9A-Za-z\?\!\.\'\(\)\,\-\`\;\–\n\’\ \—\:\$]+\<br\>\<br\>[0-9A-Za-z\?\!\.\'\(\)\,\-\`\;\–\n\’\ \—\:\$]+\<\/  {
+                                                                                                            title_length = strlen(yytext+11);
+                                                                                                            title = (char *) malloc(sizeof(char) * strlen(yytext));
+                                                                                                            memset(title, '\0', title_length);
+                                                                                                            strncpy(title, yytext+11, title_length - 2);
+                                                                                                            printf("%s\n", title);
+                                                                                                            free(title);
+                                                                                                         }
+
 .
 %%
 

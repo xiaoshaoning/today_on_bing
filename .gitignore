@@ -6,3 +6,4 @@ url2file
 today_on_bing
 today_on_bing_url
 *.lex.yy.c
+*.txt

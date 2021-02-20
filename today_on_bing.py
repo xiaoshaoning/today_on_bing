@@ -16,6 +16,6 @@ with open('link.txt', 'r') as fid:
     options.binary_location = "/usr/bin/chromium-browser"
     driver = webdriver.Chrome(chrome_options=options)
     driver.get(link)
-    time.sleep(8)
+    time.sleep(10)
     html = driver.page_source
     print(html)
